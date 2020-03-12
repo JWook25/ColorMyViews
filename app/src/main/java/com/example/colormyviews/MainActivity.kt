@@ -22,17 +22,17 @@ class MainActivity : AppCompatActivity() {
     {
         when (view.id)
         {
-            R.id.box_one_text -> view.setBackgroundColor(Color.DKGRAY)
-            R.id.box_two_text -> view.setBackgroundColor(Color. GRAY)
-            R.id.box_three_text -> view.setBackgroundColor(Color.BLUE)
-            R.id.box_four_text -> view.setBackgroundColor(Color.MAGENTA)
-            R.id.box_five_text -> view.setBackgroundColor(Color.BLUE)
+            R.id.box_one_text -> view.setBackgroundColor(randomColor())
+            R.id.box_two_text -> view.setBackgroundColor(randomColor())
+            R.id.box_three_text -> view.setBackgroundColor(randomColor())
+            R.id.box_four_text -> view.setBackgroundColor(randomColor())
+            R.id.box_five_text -> view.setBackgroundColor(randomColor())
 
             R.id.red_button -> box_three_text.setBackgroundResource(R.color.my_red)
             R.id.yellow_button -> box_four_text.setBackgroundResource(R.color.my_yellow)
             R.id.green_button -> box_five_text.setBackgroundResource(R.color.my_green)
 
-            else -> view.setBackgroundColor(Color.LTGRAY)
+            else -> view.setBackgroundColor(randomColor())
         }
 
     }
@@ -57,5 +57,18 @@ class MainActivity : AppCompatActivity() {
             item.setOnClickListener{makeColored(it)}
         }
 
+    }
+
+    private fun randomColor(): Int {
+        val randomInt = (1..6).random()
+        val randomColor = return when (randomInt) {
+            1 -> (Color.BLACK)
+            2 -> (Color.GRAY)
+            3 -> (Color.BLUE)
+            4 -> (Color.MAGENTA)
+            5 -> (Color.CYAN)
+            6 -> (Color.RED)
+            else -> (Color.WHITE)
+        }
     }
 }
